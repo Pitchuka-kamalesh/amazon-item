@@ -3,7 +3,7 @@ import smtplib
 import requests 
 from bs4 import BeautifulSoup as bs
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',}
-link = 'https://www.amazon.in/Amazon-FireTVStick-Alexa-Voice-Remote-Streaming-Player/dp/B0791YHVMK' 
+link = 'link'# amazon product link  
 # item you want to moniter for rate
 def mailg(rate):
     gmail_user = ''  #gmail id 
@@ -38,7 +38,7 @@ def amaz ():
 
     rate = float((price.replace("₹\xa0","")).replace(',',''))
 
-    if rate <= 3200:
+    if rate <= costumer_price: # in place of costumer_price replace with your normal price
         mailg(rate)
     
     else:
@@ -46,7 +46,10 @@ def amaz ():
         time.sleep(43200)
         amaz()
 
-amaz() 
 
+
+if __name__ == "__main__":
+    
+    amaz()
 
 
